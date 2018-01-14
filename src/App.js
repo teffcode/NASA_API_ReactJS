@@ -21,21 +21,24 @@ class App extends Component {
     })
   }
 
-  getPhotos = () => {
+  renderGetPhotos = () => {
     const { photos } = this.state;
 
     return photos.map(photo => {
-      <div>
-        {console.log('photo', photo)}
-      </div>
+      return (
+        <div>
+          {console.log('photo', photo)}
+          <img src={photo.url}/>
+        </div>
+      )
     })
   }
 
   render() {
     return (
       <div>
-       hola
-       {this.getPhotos()}
+       APOD
+       {this.renderGetPhotos()}
       </div>
     );
   }
