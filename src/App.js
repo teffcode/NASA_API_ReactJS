@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=10`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=12`)
     .then(response => {
       this.setState({
         photos: response.data
@@ -37,8 +37,10 @@ class App extends Component {
   render() {
     return (
       <div>
-       APOD
-       {this.renderGetPhotos()}
+        <h1>Astronomy Picture of the Day</h1>
+        <div className="container">
+          {this.renderGetPhotos()}
+        </div>
       </div>
     );
   }
