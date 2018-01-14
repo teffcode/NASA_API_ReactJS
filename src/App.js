@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=5`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=10`)
     .then(response => {
       this.setState({
         photos: response.data
@@ -26,9 +26,9 @@ class App extends Component {
 
     return photos.map(photo => {
       return (
-        <div>
-          {console.log('photo', photo)}
+        <div className="card">
           <img src={photo.url}/>
+          <p>{photo.title}</p>
         </div>
       )
     })
